@@ -8,12 +8,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.springframework.stereotype.Repository;
+//import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Transactional
-@Repository
 public class HashUriDAO {
     private Session currentSession;
 
@@ -43,7 +42,9 @@ public class HashUriDAO {
     }
 
     private static SessionFactory getSessionFactory() {
-        Configuration configuration = new Configuration().configure();
+        Configuration configuration = new Configuration();
+        configuration.addAnnotatedClass(br.com.tavaresdu.model.HashUri.class);
+        configuration.configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
