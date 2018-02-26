@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt" ng-app="url_shortener">
+<head>
+    <meta charset="utf-8">
+    <title>Encurtador de URLs</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css">
+    <script src="resources/js/lib/angular.min.js"></script>
+    <script src="resources/js/lib/dirPagination.js"></script>
+    <script src="resources/js/app.js"></script>
+</head>
+<body>
+<div role="main" class="container">
+    <div class="" style="margin-top:10px;">
+        <div class="col-lg-8">
+            <div class="page-header">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Cole a URL aqui">
+                        <button>Encurtar URL</button>
+                    </div>
+                </form>
+            </div>
+            <div class="bs-component" ng-controller="listdata">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" ng-model="search" class="form-control" placeholder="Digite sua busca">
+                    </div>
+                </form>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th ng-click="sort('hash_link')">URL Encurtada
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='hash_link'"
+                                  ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="sort('uri')">URL Original
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='uri'"
+                                  ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="sort('created_at')">Data de Criação
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='created_at'"
+                                  ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr dir-paginate="hash in hashs|orderBy:sortKey:reverse|filter:search|itemsPerPage:10">
+                        <td>{{hash.hash_link}}</td>
+                        <td>{{hash.uri}}</td>
+                        <td>{{hash.created_at | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                        <td>
+                            <button ng-click="edit(hash)">Editar</button>
+                            <button ng-click="remove(hash)">Excluir</button>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
