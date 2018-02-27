@@ -52,8 +52,8 @@
                         <td>{{hash.uri}}</td>
                         <td>{{hash.created_at | date:'dd/MM/yyyy HH:mm:ss'}}</td>
                         <td>
-                            <button ng-click="edit(hash)">Editar</button>
-                            <button ng-click="remove(hash)">Excluir</button>
+                            <a href="javascript:void(0);" class="btn btn-info" ng-click="edit(hash)">Editar</a>
+                            <a href="javascript:void(0);" class="btn btn-danger" ng-click="remove(hash)">Excluir</a>
                         </td>
                         </tr>
                     </tbody>

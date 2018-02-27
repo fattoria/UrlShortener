@@ -1,14 +1,14 @@
-package br.com.tavaresdu.service;
+package br.com.tavaresdu.dao;
 
 import br.com.tavaresdu.dao.HashUriDAO;
 import br.com.tavaresdu.model.HashUri;
 
 import java.util.List;
 
-public class HashUriService {
+public class HashUriDAOService {
     private static HashUriDAO hashUriDAO;
 
-    public HashUriService() {
+    public HashUriDAOService() {
         hashUriDAO = new HashUriDAO();
     }
 
@@ -40,12 +40,12 @@ public class HashUriService {
 
     public List<HashUri> findAll() {
         hashUriDAO.openCurrentSession();
-        List<HashUri> books = hashUriDAO.findAll();
+        List<HashUri> hashUris = hashUriDAO.findAll();
         hashUriDAO.closeCurrentSession();
-        return books;
+        return hashUris;
     }
 
-    public HashUriDAO bookDao() {
+    public HashUriDAO hashUriDAO() {
         return hashUriDAO;
     }
 }
