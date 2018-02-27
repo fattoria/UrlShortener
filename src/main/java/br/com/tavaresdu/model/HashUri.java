@@ -1,7 +1,6 @@
 package br.com.tavaresdu.model;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;

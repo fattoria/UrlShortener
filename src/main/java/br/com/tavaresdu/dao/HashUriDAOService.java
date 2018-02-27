@@ -1,6 +1,5 @@
 package br.com.tavaresdu.dao;
 
-import br.com.tavaresdu.dao.HashUriDAO;
 import br.com.tavaresdu.model.HashUri;
 
 import java.util.List;

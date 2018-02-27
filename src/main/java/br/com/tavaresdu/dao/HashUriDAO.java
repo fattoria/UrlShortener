@@ -1,21 +1,17 @@
 package br.com.tavaresdu.dao;
 
 import javax.transaction.Transactional;
-
 import br.com.tavaresdu.model.HashUri;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-//import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Transactional
 public class HashUriDAO {
     private Session currentSession;
-
     private Transaction currentTransaction;
 
     public HashUriDAO() {
