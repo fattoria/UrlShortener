@@ -1,15 +1,15 @@
 var app = angular.module('url_shortener', ['angularUtils.directives.dirPagination']);
 
 app.controller('listdata',function($scope, $http){
-	// $scope.hashs = [{"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-25T23:09:21+00:00")},
-     //    {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-10-25T23:09:21+00:00")},
-     //    {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2017-02-25T23:09:21+00:00")},
-     //    {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-24T23:09:21+00:00")},
-     //    {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-25T08:20:21+00:00")}];
-    $http.get('/UrlShortener/rest/hashuri').
-    then(function(response) {
-        $scope.hashs = response.data;
-    });
+	$scope.hashs = [{"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-25T23:09:21+00:00")},
+        {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-10-25T23:09:21+00:00")},
+        {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2017-02-25T23:09:21+00:00")},
+        {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-24T23:09:21+00:00")},
+        {"hash_link":domain+'/jRa',"uri":"http://facebook.com/","created_at":Date.parse("2018-02-25T08:20:21+00:00")}];
+    // $http.get('/UrlShortener/rest/hashuri').
+    // then(function(response) {
+    //     $scope.hashs = response.data;
+    // });
 
 	$scope.sort = function(keyname){
 	    if ($scope.sortKey == keyname) {
